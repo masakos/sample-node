@@ -14,6 +14,7 @@ function GreetForm() {
     try {
       const data = await fetchGreeting(name);
       setMessage(data.message);
+      console.log('=========> サーバーからのレスポンス:', data);
     } catch (err) {
       setError(err.message);
     }
