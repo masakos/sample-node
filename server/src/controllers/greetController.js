@@ -25,4 +25,4 @@ function getHealth(req, res) {
   });
 }
 
-module.exports = { getHealth, postGreet };
+export { getHealth, postGreet };

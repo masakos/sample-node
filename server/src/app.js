@@ -1,6 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const greetRoutes = require('./routes/greetRoutes');
+import express from 'express';
+import cors from 'cors';
+import { pathToFileURL } from 'node:url';
+import greetRoutes from './routes/greetRoutes.js';
 
 const app = express();
 
@@ -15,12 +16,15 @@ app.use('/api', greetRoutes);
 
 const PORT = process.env.PORT || 3001;
 
-// テストからrequireされたときはサーバーを自動起動しない
+// テストからimportされたときはサーバーを自動起動しない
 // (テストは app オブジェクトだけを使ってリクエストをシミュレートするため)
-if (require.main === module) {
+const isMainModule = process.argv[1]
+  && pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isMainModule) {
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
 }
 
-module.exports = app;
+export default app;

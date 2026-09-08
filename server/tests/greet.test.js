@@ -1,5 +1,5 @@
-const request = require('supertest');
-const app = require('../src/app');
+import request from 'supertest';
+import app from '../src/app.js';
 
 describe('GET /api/health', () => {
   it('サーバーの稼働状態を確認できる', async () => {
@@ -20,7 +20,7 @@ describe('POST /api/greet', () => {
       .send({ name: '太郎' });
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.message).toBe('こんにちは、次郎さん！');
+    expect(res.body.message).toBe('こんにちは、太郎さん！');
   });
 
   it('前後の空白はトリムされる', async () => {
