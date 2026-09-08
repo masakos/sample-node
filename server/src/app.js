@@ -6,6 +6,7 @@ const app = express();
 
 // フロントエンド(別ポート)からのアクセスを許可する
 app.use(cors());
+
 // JSON形式のリクエストボディをパースできるようにする
 app.use(express.json());
 
