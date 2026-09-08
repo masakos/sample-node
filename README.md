@@ -1,13 +1,13 @@
 # React + Express 学習プロジェクト
 
 名前を入力すると挨拶メッセージが返ってくるだけの、最小構成のReact + REST APIです。
-ペアプログラミングでの機能追加と、サーバー側コードのリファクタリング演習を想定しています。
 
-## 1. 概念
+## 1. 概要 
 
 - **SPA（Single Page Application）**：最初に index.html などのHTMLを読み込み、その後はJavaScript（React）が画面の必要な部分だけを更新する。ページ全体のリロードを基本的に行わずに画面を切り替える。
 - **サーバー (Express)**: `GET /api/health` で稼働状態を確認でき、`POST /api/greet` でJSONを受け取り、挨拶メッセージを返すシンプルなREST API。
 - **クライアント⇔サーバー通信**: ブラウザの`fetch`でJSONをやり取りする。通信処理は`client/src/api/greetApi.js`に集約し、コンポーネント(`GreetForm.jsx`)は「呼び出すだけ」にすることで関心を分離している。
+    - https://developer.mozilla.org/ja/docs/Web/API/Fetch_API
 - **クライアント⇔サーバー通信**: クライアントの環境変数`VITE_API_BASE_URL`で指定したAPIサーバーへ、絶対URLでリクエストを送信する。APIサーバーはCORSを許可している。
 
 ## 2. セットアップと起動
@@ -27,7 +27,7 @@ npm run dev       # http://localhost:5173
 `.env.example`を`.env`としてコピーし、APIサーバーのURLを設定します。PowerShellでは次のコマンドを実行できます。
 
 ```powershell
-Copy-Item .env.example .env
+cp .env.example .env
 ```
 
 `.env`の内容:
@@ -82,3 +82,5 @@ cd server && npm test    # Jest + Supertest
 
 - `server`ディレクトリで`npm install` → `npm test`(Jest)
 
+
+参考：https://docs.github.com/en/actions/get-started/quickstart

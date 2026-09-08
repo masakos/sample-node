@@ -20,7 +20,7 @@ describe('POST /api/greet', () => {
       .send({ name: '太郎' });
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.message).toBe('こんにちは、太郎さん！');
+    expect(res.body.message).toBe('こんにちは、次郎さん！');
   });
 
   it('前後の空白はトリムされる', async () => {
